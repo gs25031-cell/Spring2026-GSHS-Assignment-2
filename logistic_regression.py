@@ -23,15 +23,15 @@ def logistic_regression(x_train: np.ndarray, y_train: np.ndarray, x_test: np.nda
     p=np.zeros(n)
     q=0.0
     a,b=(0.001,3000)
-    for_in range(b):
-      z=x*p+q
+    for _ in range(b):
+      z=x@p+q
       r=f(z)
-      dp=(x.T*(r-y))/m
+      dp=(x.T@(r-y))/m
       dq=np.sum(r-y)/m
 
       p=p-a*dp
       q=q-a*dq
-    t=f(x_test*p+q)
-    ans=(p_test>=0.5).astype(int)
+    t=f(x_test@@p+q)
+    ans=(t>=0.5).astype(int)
 
     return ans
