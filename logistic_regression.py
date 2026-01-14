@@ -22,7 +22,7 @@ def logistic_regression(x_train: np.ndarray, y_train: np.ndarray, x_test: np.nda
     m,n=x.shape
     p=np.zeros(n)
     q=0.0
-    a,b=(0.001,3000)
+    a,b=(0.1,3000)
     for _ in range(b):
       z=x@p+q
       r=f(z)
