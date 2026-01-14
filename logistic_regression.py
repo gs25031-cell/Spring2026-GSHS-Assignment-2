@@ -15,4 +15,23 @@ def logistic_regression(x_train: np.ndarray, y_train: np.ndarray, x_test: np.nda
         y_pred: Predicted labels for the test set
     '''
     # Your code here
-    pass
+    def f(z):
+        return 1/(1+np.exp(-z))
+    x=x_train
+    y=y_train
+    m,n=X.shape
+
+    a,b=(0.001,300)
+    for_in range(b):
+      z=x*p+q
+      r=f(z)
+      dp=(x.T*(r-y))/m
+      dq=np.sum(r-y)/m
+
+      p=p-a*dp
+      q=q-a*dq
+    t=f(x_test*w+b)
+    if t>=0.5: ans=1
+    else: ans=0
+    return ans
+    
