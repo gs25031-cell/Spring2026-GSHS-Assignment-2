@@ -31,7 +31,7 @@ def logistic_regression(x_train: np.ndarray, y_train: np.ndarray, x_test: np.nda
 
       p=p-a*dp
       q=q-a*dq
-    t=f(x_test@@p+q)
+    t=f(x_test@p+q)
     ans=(t>=0.5).astype(int)
 
     return ans
