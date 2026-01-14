@@ -34,4 +34,3 @@ def logistic_regression(x_train: np.ndarray, y_train: np.ndarray, x_test: np.nda
     if t>=0.5: ans=1
     else: ans=0
     return ans
-    
