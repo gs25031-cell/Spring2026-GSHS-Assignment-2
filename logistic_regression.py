@@ -19,9 +19,10 @@ def logistic_regression(x_train: np.ndarray, y_train: np.ndarray, x_test: np.nda
         return 1/(1+np.exp(-z))
     x=x_train
     y=y_train
-    m,n=X.shape
-
-    a,b=(0.001,300)
+    m,n=x.shape
+    p=np.zeros(n)
+    q=0.0
+    a,b=(0.001,3000)
     for_in range(b):
       z=x*p+q
       r=f(z)
@@ -30,7 +31,7 @@ def logistic_regression(x_train: np.ndarray, y_train: np.ndarray, x_test: np.nda
 
       p=p-a*dp
       q=q-a*dq
-    t=f(x_test*w+b)
-    if t>=0.5: ans=1
-    else: ans=0
+    t=f(x_test*p+q)
+    ans=(p_test>=0.5).astype(int)
+
     return ans
